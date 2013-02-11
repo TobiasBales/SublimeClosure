@@ -10,22 +10,30 @@ prototype_property = string.Template("""/**
 $namespace.prototype.${1:[name]} = ${2:[value]};""")
 
 prototype_function = string.Template("""/**
- * * ${4}
+ * ${4}
  */
 $namespace.prototype.${1:[name]} = function(${2:[params]}) {
     ${3}
 };""")
 
 static_property = string.Template("""/**
- * * @type {${3:[type]}}
+ * @type {${3:[type]}}
  */
 $namespace.${1:[name]} = ${2:[value]};""")
 
 static_function = string.Template("""/**
- * * ${4}
+ * ${4}
  */
 $namespace.${1:[name]} = function(${2:[params]}) {
     ${3}
+};""")
+
+
+enumeration = string.Template("""/**
+ * @enum {${2:[type]}}
+ */
+$namespace.${1:[name]} = {
+    ${3:[values]}
 };""")
 
 component = string.Template("""

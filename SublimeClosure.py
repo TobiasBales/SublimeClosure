@@ -124,13 +124,15 @@ class SublimeClosureListener(sublime_plugin.EventListener):
                 return completions
             namespace = view.substr(regions_above[-1])
 
-        completions.append(("proto \t prototype property",
+        completions.append(("enumeration",
+                            render(templates.enumeration, {'namespace': namespace})))
+        completions.append(("prototype property",
                             render(templates.prototype_property, {'namespace': namespace})))
-        completions.append(("protof \t prototype function",
+        completions.append(("prototype function",
                             render(templates.prototype_function, {'namespace': namespace})))
-        completions.append(("static \t static property",
+        completions.append(("static property",
                             render(templates.static_property, {'namespace': namespace})))
-        completions.append(("staticf \t static function",
+        completions.append(("static function",
                             render(templates.static_function, {'namespace': namespace})))
 
         return completions
