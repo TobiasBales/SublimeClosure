@@ -74,6 +74,28 @@ class AddComponentCommand(AddClassCommand):
         return "goog.ui.Component"
 
 
+class AddControlCommand(AddClassCommand):
+    def type(self):
+        return "Control"
+
+    def template(self):
+        return templates.control
+
+    def require(self):
+        return "goog.ui.Control"
+
+
+class AddControlRendererCommand(AddClassCommand):
+    def type(self):
+        return "ControlRenderer"
+
+    def template(self):
+        return templates.control_renderer
+
+    def require(self):
+        return "goog.ui.ControlRenderer"
+
+
 class SublimeClosureListener(sublime_plugin.EventListener):
     def get_provides(self, view):
         namespaces = []

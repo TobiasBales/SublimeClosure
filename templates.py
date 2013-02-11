@@ -76,3 +76,57 @@ $namespace.prototype.enterDocument = function() {
 $namespace.prototype.disposeInternal = function() {
     goog.base(this, 'disposeInternal');
 };""")
+
+
+control = string.Template("""
+
+
+/**
+ * @constructor
+ * @extends {goog.ui.Control}
+ * @param {goog.ui.ControlContent} content
+ */
+$namespace = function(content) {
+    goog.base(this, content);
+};
+goog.inherits($namespace, goog.ui.Control);
+
+
+/**
+ * @inheritDoc
+ */
+$namespace.prototype.enterDocument = function() {
+    goog.base(this, 'enterDocument');
+
+    var handler = this.getHandler();
+};
+
+
+/**
+ * @inheritDoc
+ */
+$namespace.prototype.disposeInternal = function() {
+    goog.base(this, 'disposeInternal');
+};""")
+
+
+control_renderer = string.Template("""
+
+
+/**
+ * @constructor
+ * @extends {goog.ui.ControlRenderer}
+ */
+$namespace = function() {
+    goog.base(this);
+};
+goog.inherits($namespace, goog.ui.Control);
+goog.addSingletonGetter($namespace);
+
+
+/**
+ * @inheritDoc
+ */
+$namespace.prototype.createDom = function(control) {
+    return goog.base(this, 'createDom', control);
+};""")

@@ -2,5 +2,13 @@
     {
         "caption": "Closure: Create Component",
         "command": "add_component"
+    },
+    {
+        "caption": "Closure: Create Control",
+        "command": "add_control"
+    },
+    {
+        "caption": "Closure: Create Control Renderer",
+        "command": "add_control_renderer"
     }
 ]
