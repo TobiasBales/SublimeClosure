@@ -28,6 +28,8 @@ $namespace.${1:[name]} = function(${2:[params]}) {
     ${3}
 };""")
 
+static_accessor = string.Template("$namespace.${1:[property]}")
+
 
 enumeration = string.Template("""/**
  * @enum {${2:[type]}}

@@ -152,6 +152,8 @@ class SublimeClosureListener(sublime_plugin.EventListener):
                             render(templates.prototype_property, {'namespace': namespace})))
         completions.append(("prototype function",
                             render(templates.prototype_function, {'namespace': namespace})))
+        completions.append(("static accessor",
+                            render(templates.static_accessor, {'namespace': namespace})))
         completions.append(("static property",
                             render(templates.static_property, {'namespace': namespace})))
         completions.append(("static function",
