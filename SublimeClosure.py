@@ -27,7 +27,14 @@ class AddClassCommand(sublime_plugin.TextCommand):
         name = self.require()
         if self.has_require(name):
             return
-        self.view.insert(edit, self.require_position(), render(templates.require, {'namespace': name}) + "\n")
+
+        position = self.require_position()
+        if (position == 0):
+            self.view.insert(edit, self.provide_position(), "\n")
+            position = self.provide_position() + 1
+            print(position)
+
+        self.view.insert(edit, position, render(templates.require, {'namespace': name}) + "\n")
 
     def add_template(self, edit, name):
         self.view.insert(edit, self.view.size(), render(self.template(), {'namespace': name}))
@@ -51,7 +58,7 @@ class AddClassCommand(sublime_plugin.TextCommand):
 
     def require_position(self):
         position = self.last_position_for_pattern("goog.require\(['\"](.+)['\"]\);?")
-        return position + 1 if position else self.provide_position()
+        return position + 1 if position else 0
 
     def is_visible(self):
         if (self.view == None):
