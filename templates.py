@@ -44,8 +44,9 @@ component = string.Template("""
 /**
  * @constructor
  * @extends {goog.ui.Component}
+ * ${2:[param doc]}
  */
-$namespace = function() {
+$namespace = function(${1:[params]}) {
     goog.base(this);
 };
 goog.inherits($namespace, goog.ui.Component);
@@ -87,8 +88,9 @@ control = string.Template("""
  * @constructor
  * @extends {goog.ui.Control}
  * @param {goog.ui.ControlContent} content
+ * ${2:[param docs]}
  */
-$namespace = function(content) {
+$namespace = function(content, ${1:[params]}) {
     goog.base(this, content);
 };
 goog.inherits($namespace, goog.ui.Control);
@@ -131,4 +133,5 @@ goog.addSingletonGetter($namespace);
  */
 $namespace.prototype.createDom = function(control) {
     return goog.base(this, 'createDom', control);
+    ${1}
 };""")
